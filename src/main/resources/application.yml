@@ -1,3 +1,3 @@
 jwt:
   token:
-    secret: hello.world.ee.ff
+    secret: "hello.world.ee.ff"
