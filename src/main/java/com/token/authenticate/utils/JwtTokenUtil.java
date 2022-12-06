@@ -15,6 +15,12 @@ public class JwtTokenUtil {
                 .getExpiration()
                 .before(new Date());
     }
+
+    public static String getUserName(String token, String secretKey) {
+        return Jwts.parser().setSigningKey(secretKey).parseClaimsJws(token)
+                .getBody()
+                .get("userName", String.class);
+    }
     public static String createToken(String userName, String key, Long expiredUntilMs) {
         Claims claims = Jwts.claims();
         claims.put("userName", userName);
